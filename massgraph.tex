@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[a4paper,left=0.5cm,right=1cm,top=1cm,bottom=1cm,landscape=true]{geometry}
+\pagestyle{empty}
+\usepackage{polyglossia}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\begin{document}
+
+\begin{tikzpicture}
+  \def\weekmax{52}
+  \def\weekmin{14}
+  \def\weightmax{85}
+  \def\weightmin{55}
+  \begin{axis}[
+    xlabel = {Zeit [KW]},
+    xmin = \weekmin,
+    xmax = \weekmax,
+    xtick = {\weekmin,...,\weekmax},
+    ymin = \weightmin,
+    ymax = \weightmax,
+    ytick = {\weightmin,...,\weightmax},
+    ylabel = {Gewicht [kg]},
+    width = 1\textwidth,      
+    height = 1\textheight,
+    xmajorgrids,
+    ymajorgrids,
+    xminorgrids,
+    yminorgrids,
+    minor x tick num = 6,
+    minor y tick num = 4,
+    %subtickwidth=2pt,
+    %minor tick length=2pt,
+    %minor tick style={green!50!black},
+    %major tick style={green!50!black},
+    major grid style = {black},
+    major tick style = {black},
+    %xticklabels from table={mylabel.csv}{X},,
+    xticklabel style={rotate=45,anchor=north east},
+    %extra x ticks={14.857142857,...,52},
+    %extra x tick style={
+    %  major grid style={draw=black},
+    %  xticklabel=\empty
+    %}
+    %legend pos=outer north east,
+    %legend cell align=left,
+    %legend style={draw=none}
+    smooth
+    ]
+    %\addplot plot coordinates {(14,80)(52,50)};  % just to show some line
+    %\addplot table[x=time,y=pressure]{data.txt}; % the "real" data
+    %------------------------------------------------------------------------------
+    %\draw[<->] (14,50) -- (20,55) node[above, left] {Im};
+  \end{axis}
+
+\end{tikzpicture}
+\end{document}
